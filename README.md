@@ -3,6 +3,8 @@ A Javascript library that generates RGB colors based on a theme.
 
 [![](https://img.shields.io/badge/license-MIT-ff69b4)](./LICENSE)
 
+![](https://img.shields.io/github/issues/cherieliu/color-themer?logoColor=ff69b4)
+
 ## Overview
 Currently, a pain point for Javascript frontend development is the need to find cohesive colors and their RGB codes. Personally, I require a lot of time to test different colors and alter the RGB values so that the components on a page all look unified. 
 
