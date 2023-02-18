@@ -13,15 +13,15 @@ let imdims = [1200, 1200];
 let imbuff = utils.parseImageToBuffer(impath);
 assert.equal(imbuff.length, imsize);
 
-let imPixels = [];
 // console.log(imbuff);
 let colors = utils.getRGBColors(imbuff);
 // check number of pixels == number of RGB colors
 assert.equal(colors.length, imdims[0] * imdims[1]);
-// console.log(colors);
-// console.log(imPixels);
-// ssert.equal(impixels.shape, imdims);
-// assert.equal(impixels.shape.slice()[1], imheight);
+
+let colorCount = utils.getColorCount(colors);
+const sumValues = obj => Object.values(obj).reduce((a, b) => a + b, 0);
+let colorSum = sumValues(colorCount);
+assert.equal(colorSum, imdims[0] * imdims[1]);
 
 
 console.log(`\u001B[32m✓\u001B[39m Tests passed`);
