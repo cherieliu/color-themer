@@ -31,5 +31,11 @@
   "files": [
     "dist",
     "src"
-  ]
+  ],
+  "dependencies": {
+    "get-image-colors": "^4.0.1",
+    "get-pixels": "^3.3.3",
+    "image-size": "^1.0.2",
+    "pngjs": "^6.0.0"
+  }
 }
