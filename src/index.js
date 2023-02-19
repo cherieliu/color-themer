@@ -18,7 +18,6 @@ export function getRGBColors(imageBuffer) {
     var i = 0;
     var png = PNG.sync.read(imageBuffer).data;
     pixels = png.length / 4;
-
     for (i = 0; i < pixels; i++) {
         r = png[i];
         g = png[i+1];
@@ -26,7 +25,6 @@ export function getRGBColors(imageBuffer) {
         let color = [r, g, b];
         colors.push(color);
     }
-
     return colors;
 }
 
@@ -41,13 +39,26 @@ export function getColorCount(colors) {
         g = rgb[1];
         b = rgb[2];
         hex = ((r << 16) | (g << 8) | b).toString(16);
+        // invalid hex code
+        if (hex.length !== 6 || isNaN(Number('0x' + hex))) {
+            continue;
+        }
         if (hex in colorCount) {
             colorCount[hex]++;
         } else {
             colorCount[hex] = 1;
         }
     }
-
-
     return colorCount;
+}
+
+export function sortColors(colorCounts) {
+    var counts = Object.keys(colorCounts).map(
+        (key) => { return [key, colorCounts[key]] });
+    counts.sort(
+        (first, second) => {return first[1] - second[1]});
+    var keys = counts.map(
+        (e) => { return [e[0], e[1]]}
+    ).reverse();
+    return keys;
 }

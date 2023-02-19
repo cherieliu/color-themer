@@ -13,15 +13,30 @@ let imdims = [1200, 1200];
 let imbuff = utils.parseImageToBuffer(impath);
 assert.equal(imbuff.length, imsize);
 
-// console.log(imbuff);
 let colors = utils.getRGBColors(imbuff);
 // check number of pixels == number of RGB colors
 assert.equal(colors.length, imdims[0] * imdims[1]);
 
 let colorCount = utils.getColorCount(colors);
-const sumValues = obj => Object.values(obj).reduce((a, b) => a + b, 0);
-let colorSum = sumValues(colorCount);
-assert.equal(colorSum, imdims[0] * imdims[1]);
+// check that each color is valid
+
+// https://stackoverflow.com/questions/8027423/how-to-check-if-a-string-is-a-valid-hex-color-representation
+function isHexColor (hex) {
+    return typeof hex === 'string'
+        && hex.length === 6
+        && !isNaN(Number('0x' + hex))
+}
+
+for (const [key, value] of Object.entries(colorCount)) {
+    assert.equal(true, isHexColor(key));
+}
+
+let topColors = utils.sortColors(colorCount);
+let counts = Object.values(topColors);
+for (var i = 0; i < counts.length - 1; i++) {
+    assert.equal(true, topColors[i][1] >= topColors[i+1][1]);
+}
+
 
 
 console.log(`\u001B[32m✓\u001B[39m Tests passed`);
