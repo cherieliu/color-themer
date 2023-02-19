@@ -62,3 +62,12 @@ export function sortColors(colorCounts) {
     ).reverse();
     return keys;
 }
+
+export function getTopNColors(colors, n) {
+    let topColorCounts = colors.slice(0, n);
+    var topColors = topColorCounts.map(
+        (col) => { return col[0]}
+    );
+
+    return topColors;
+}

@@ -31,12 +31,13 @@ for (const [key, value] of Object.entries(colorCount)) {
     assert.equal(true, isHexColor(key));
 }
 
-let topColors = utils.sortColors(colorCount);
-let counts = Object.values(topColors);
+let sortedColors = utils.sortColors(colorCount);
+let counts = Object.values(sortedColors);
 for (var i = 0; i < counts.length - 1; i++) {
-    assert.equal(true, topColors[i][1] >= topColors[i+1][1]);
+    assert.equal(true, sortedColors[i][1] >= sortedColors[i+1][1]);
 }
 
-
+let top5Colors = utils.getTopNColors(sortedColors, 5);
+assert.equal(top5Colors.length, 5);
 
 console.log(`\u001B[32m✓\u001B[39m Tests passed`);
