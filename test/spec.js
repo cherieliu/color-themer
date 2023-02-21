@@ -18,7 +18,6 @@ let colors = utils.getRGBColors(imbuff);
 assert.equal(colors.length, imdims[0] * imdims[1]);
 
 let colorCount = utils.getColorCount(colors);
-// check that each color is valid
 
 // https://stackoverflow.com/questions/8027423/how-to-check-if-a-string-is-a-valid-hex-color-representation
 function isHexColor (hex) {
@@ -27,6 +26,7 @@ function isHexColor (hex) {
         && !isNaN(Number('0x' + hex))
 }
 
+// check that each color is a valid HTML color
 for (const [key, value] of Object.entries(colorCount)) {
     assert.equal(true, isHexColor(key));
 }
