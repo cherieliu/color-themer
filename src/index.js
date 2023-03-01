@@ -2,6 +2,14 @@ const fs = require('fs');
 const path = require('path');
 const PNG = require('pngjs').PNG;
 
+export function getColorScheme(imagePath, n) {
+    var imageBuff = parseImageToBuffer(imagePath);
+    var colors = getRGBColors(imageBuff);
+    var colorCounts = getColorCount(colors);
+    var sortedColors = sortColors(colorCounts);
+    return getTopNColors(sortedColors, n);
+}
+
 export function parseImageToBuffer(imagePath) {
     try {
         const imageBuffer = fs.readFileSync(imagePath);

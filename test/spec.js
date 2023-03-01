@@ -10,6 +10,7 @@ let imsize = 145756;
 let imdims = [1200, 1200];
 
 /* Tests on testimg1.png */
+/* ----- UNIT TESTS ----- */
 let imbuff = utils.parseImageToBuffer(impath);
 assert.equal(imbuff.length, imsize);
 
@@ -40,4 +41,10 @@ for (var i = 0; i < counts.length - 1; i++) {
 let top5Colors = utils.getTopNColors(sortedColors, 5);
 assert.equal(top5Colors.length, 5);
 
-console.log(`\u001B[32m✓\u001B[39m Tests passed`);
+console.log(`\u001B[32m✓\u001B[39m Unit Tests passed`);
+
+/* ----- INTEGRATION TEST ----- */
+let top10Colors = utils.getColorScheme(impath, 10);
+assert.equal(top10Colors.length, 10);
+
+console.log(`\u001B[32m✓\u001B[39m Integration Test passed`);
