@@ -7,7 +7,7 @@
   "browser": "dist/color-themer.umd.js",
   "scripts": {
     "build": "rollup -c",
-    "test": "node test/spec",
+    "test": "coverage test/spec",
     "pretest": "npm run build"
   },
   "repository": {
@@ -36,6 +36,7 @@
     "src"
   ],
   "dependencies": {
+    "coverage": "^0.4.1",
     "get-image-colors": "^4.0.1",
     "get-pixels": "^3.3.3",
     "image-size": "^1.0.2",
