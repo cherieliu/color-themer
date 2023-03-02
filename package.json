@@ -5,10 +5,6 @@
   "main": "dist/color-themer.cjs.js",
   "module": "dist/color-themer.esm.js",
   "browser": "dist/color-themer.umd.js",
-  "jest": {
-    "testEnvironment": "jest-environment-node",
-    "transform": {}
-  },
   "scripts": {
     "build": "rollup -c",
     "test": "jest --coverage",
