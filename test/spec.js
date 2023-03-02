@@ -1,50 +1,50 @@
-const utils = require('..');
 const assert = require('assert');
 const path = require('path');
-const sizeOf = require('image-size');
+const utils = require('..');
 
-let impath = path.join(__dirname, 'testimg1.png');
+const impath = path.join(__dirname, 'testimg1.png');
 
 /* Testing Values */
-let imsize = 145756;
-let imdims = [1200, 1200];
+const imsize = 145756;
+const imdims = [1200, 1200];
 
 /* Tests on testimg1.png */
 /* ----- UNIT TESTS ----- */
-let imbuff = utils.parseImageToBuffer(impath);
+const imbuff = utils.parseImageToBuffer(impath);
 assert.equal(imbuff.length, imsize);
 
-let colors = utils.getRGBColors(imbuff);
+const colors = utils.getRGBColors(imbuff);
 // check number of pixels == number of RGB colors
 assert.equal(colors.length, imdims[0] * imdims[1]);
 
-let colorCount = utils.getColorCount(colors);
+const colorCount = utils.getColorCount(colors);
 
 // https://stackoverflow.com/questions/8027423/how-to-check-if-a-string-is-a-valid-hex-color-representation
-function isHexColor (hex) {
-    return typeof hex === 'string'
+function isHexColor(hex) {
+  return typeof hex === 'string'
         && hex.length === 6
-        && !isNaN(Number('0x' + hex))
+        && !Number.isNaN(Number(`0x${hex}`));
 }
 
 // check that each color is a valid HTML color
-for (const [key, value] of Object.entries(colorCount)) {
-    assert.equal(true, isHexColor(key));
+// eslint-disable-next-line no-restricted-syntax
+for (const [key] of Object.entries(colorCount)) {
+  assert.equal(true, isHexColor(key));
 }
 
-let sortedColors = utils.sortColors(colorCount);
-let counts = Object.values(sortedColors);
-for (var i = 0; i < counts.length - 1; i++) {
-    assert.equal(true, sortedColors[i][1] >= sortedColors[i+1][1]);
+const sortedColors = utils.sortColors(colorCount);
+const counts = Object.values(sortedColors);
+for (let i = 0; i < counts.length - 1; i += 1) {
+  assert.equal(true, sortedColors[i][1] >= sortedColors[i + 1][1]);
 }
 
-let top5Colors = utils.getTopNColors(sortedColors, 5);
+const top5Colors = utils.getTopNColors(sortedColors, 5);
 assert.equal(top5Colors.length, 5);
 
-console.log(`\u001B[32m✓\u001B[39m Unit Tests passed`);
+console.log('\u001B[32m✓\u001B[39m Unit Tests passed');
 
 /* ----- INTEGRATION TEST ----- */
-let top10Colors = utils.getColorScheme(impath, 10);
+const top10Colors = utils.getColorScheme(impath, 10);
 assert.equal(top10Colors.length, 10);
 
-console.log(`\u001B[32m✓\u001B[39m Integration Test passed`);
+console.log('\u001B[32m✓\u001B[39m Integration Test passed');
