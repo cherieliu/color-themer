@@ -7,6 +7,7 @@
   "browser": "dist/color-themer.umd.js",
   "scripts": {
     "build": "rollup -c",
+    "lint": "npx eslint src/index.js test/spec.test.js",
     "test": "jest --coverage",
     "pretest": "npm run build"
   },
