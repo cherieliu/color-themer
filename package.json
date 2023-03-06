@@ -8,7 +8,7 @@
   "scripts": {
     "build": "rollup -c",
     "lint": "npx eslint src/index.js test/spec.test.js",
-    "test": "jest --coverage",
+    "test": "jest",
     "pretest": "npm run build"
   },
   "repository": {
