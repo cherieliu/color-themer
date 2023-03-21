@@ -6,7 +6,7 @@ export function parseImageToBuffer(imagePath) {
     const imageBuffer = fs.readFileSync(imagePath);
     return imageBuffer;
   } catch (err) {
-    console.log(err);
+    /* empty */
   }
 
   // default return value
