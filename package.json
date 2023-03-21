@@ -1,6 +1,6 @@
 {
   "name": "color-themer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Javascript library that generates RGB colors based on a theme.",
   "main": "dist/color-themer.cjs.js",
   "module": "dist/color-themer.esm.js",
