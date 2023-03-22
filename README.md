@@ -1,6 +1,8 @@
 # color-themer
 A Javascript library that generates RGB colors based on a theme.
 
+[![npm](https://img.shields.io/npm/v/color-themer)](https://www.npmjs.com/package/color-themer)
+
 [![](https://img.shields.io/badge/license-MIT-ff69b4)](./LICENSE)
 
 ![](https://img.shields.io/github/issues/cherieliu/color-themer?logoColor=ff69b4)
