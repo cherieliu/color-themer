@@ -44,6 +44,7 @@
     "get-pixels": "^3.3.3",
     "image-size": "^1.0.2",
     "js-beautify": "^1.14.7",
+    "jsdoc": "^4.0.2",
     "pngjs": "^6.0.0"
   }
 }

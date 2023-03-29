@@ -82,8 +82,19 @@ export function getTopNColors(colors, n) {
   return topColors;
 }
 
+/**
+ * Main function of the color-themer library that provides its functionalities.
+ * Uses the helper, private functions to extract a color theme from the inputted image.
+ * @param {string} imagePath - Filepath of input image
+ * @param {Number} n - Number of colors in the color theme
+ * @returns Color theme with the top n colors
+ * @throws Error when imagePath cannot be read
+ */
 export function getColorScheme(imagePath, n) {
   const imageBuff = parseImageToBuffer(imagePath);
+  if (imageBuff == null) {
+    throw new Error('Can not read input image provided');
+  }
   const colors = getRGBColors(imageBuff);
   const colorCounts = getColorCount(colors);
   const sortedColors = sortColors(colorCounts);
