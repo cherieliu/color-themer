@@ -9,7 +9,8 @@
     "build": "rollup -c",
     "lint": "npx eslint src/index.js test/spec.test.js",
     "test": "jest --coverage",
-    "pretest": "npm run build"
+    "pretest": "npm run build",
+    "build-docs": "npx jsdoc src/index.js"
   },
   "repository": {
     "type": "git",

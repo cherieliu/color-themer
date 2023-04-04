@@ -84,7 +84,7 @@ export function getTopNColors(colors, n) {
 
 /**
  * Main function of the color-themer library that provides its functionalities.
- * Uses the helper, private functions to extract a color theme from the inputted image.
+ * Uses the private helper functions to extract a color theme from the inputted image.
  * @param {string} imagePath - Filepath of input image
  * @param {Number} n - Number of colors in the color theme
  * @returns Color theme with the top n colors
