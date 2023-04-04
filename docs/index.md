@@ -20,5 +20,9 @@ Currently, there is one public method that users can call to access the library'
 To use the above method, find an image and its path. The method requires a string input for path. The output of the method is the color codes in array, which users can later extract and use in their HTML elements, etc. 
 The below Jupyter notebook screenshot shows the example usage for the below image: 
 
-<img src="../test/testimg1.png" alt = "turnip" width="172" title = "example image" >
-<img src="../demo.png" width="600" title = "example image" >
+```eval_rst
+.. image:: ../test/testimg1.png
+   :width: 172px
+.. image:: ../demo.png
+   :width: 600px
+```
