@@ -9,6 +9,7 @@ A Javascript library that generates RGB colors based on a theme.
 
 [![Build Status](https://github.com/cherieliu/color-themer/workflows/Build%20Status/badge.svg?branch=main)]((https://github.com/cherieliu/color-themer/actions?query=workflow%3A%22Build+Status%22))
 [![codecov](https://codecov.io/gh/cherieliu/color-themer/branch/hw5/graph/badge.svg)](https://app.codecov.io/gh/cherieliu/color-themer/tree/main)
+[![Github Page](https://img.shields.io/badge/Github%20Pages-link-blueviolet)](https://cherieliu.github.io/color-themer/)
 
 ## Overview
 Currently, a pain point for Javascript frontend development is the need to find cohesive colors and their RGB codes. Personally, I require a lot of time to test different colors and alter the RGB values so that the components on a page all look unified. 
@@ -21,4 +22,10 @@ npm install color-themer
 ### Usage
 To run the package, call the method getColorScheme with the input image and the number of colors wanted.
 
+## Example
+<img src="test/testimg1.png" alt = "turnip" width="200" title = "example image" >
+
+To find a color theme containing the five most popular colors in the below image, one can run the commands in the Jupyter notebook screenshotted below. Make sure that the correct dependencies are all installed:
+
+<img src="demo.png" width="600" title = "example image" >
 
