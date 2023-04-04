@@ -73,7 +73,7 @@ jobs:
     - name: Install Python Dependencies
       run: python3 -m pip install -r ./requirements.txt
 
-    - run: mkdocs build
+    - run: make html
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
