@@ -76,8 +76,8 @@ jobs:
     - name: Run Sphinx
       working-directory: ./docs
       run: |
-      npm install -g jsdoc
-      make html
+        npm install -g jsdoc
+        make html
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
