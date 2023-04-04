@@ -46,8 +46,8 @@ jobs:
         python3 -m pip install --upgrade pip
     
     - name: Get pip cache dir
-        id: pip-cache
-        run: echo "dir=$(pip cache dir)" >> $GITHUB_OUTPUT
+      id: pip-cache
+      run: echo "dir=$(pip cache dir)" >> $GITHUB_OUTPUT
 
     - name: Cache dependencies
       uses: actions/cache@v3
@@ -77,6 +77,7 @@ jobs:
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
+      if: ${{ github.ref == 'refs/heads/main' }}
       with:
         personal_token: ${{ secrets.PERSONAL_TOKEN }}
         publish_dir: ./docs
