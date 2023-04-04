@@ -73,7 +73,7 @@ jobs:
     - name: Install Python Dependencies
       run: python3 -m pip install -r ./requirements.txt
 
-    - run: Run Sphinx
+    - name: Run Sphinx
       working-directory: ./docs
       run: make html
 
