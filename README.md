@@ -22,4 +22,10 @@ npm install color-themer
 ### Usage
 To run the package, call the method getColorScheme with the input image and the number of colors wanted.
 
+## Example
+<img src="test/testimg1.png" alt = "turnip" width="200" title = "example image" >
+
+To find a color theme containing the five most popular colors in the below image, one can run the commands in the Jupyter notebook screenshotted below. Make sure that the correct dependencies are all installed:
+
+<img src="demo.png" width="600" title = "example image" >
 
