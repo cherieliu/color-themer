@@ -73,7 +73,9 @@ jobs:
     - name: Install Python Dependencies
       run: python3 -m pip install -r ./requirements.txt
 
-    - run: make html
+    - run: Run Sphinx
+      working-directory: ./docs
+      run: make html
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
