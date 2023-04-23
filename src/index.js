@@ -61,6 +61,26 @@ export function getColorCount(colors) {
   return colorCount;
 }
 
+export function calculateColorDistance(hex1, hex2) {
+  const hex1int = parseInt(hex1, 16);
+  // eslint-disable-next-line no-bitwise
+  const r1 = (hex1int >> 16) & 255;
+  // eslint-disable-next-line no-bitwise
+  const g1 = (hex1int >> 8) & 255;
+  // eslint-disable-next-line no-bitwise
+  const b1 = hex1int & 255;
+
+  const hex2int = parseInt(hex2, 16);
+  // eslint-disable-next-line no-bitwise
+  const r2 = (hex2int >> 16) & 255;
+  // eslint-disable-next-line no-bitwise
+  const g2 = (hex2int >> 8) & 255;
+  // eslint-disable-next-line no-bitwise
+  const b2 = hex2int & 255;
+  const dist = Math.sqrt((r1 - r2) * (r1 - r2) + (g1 - g2) * (g1 - g2) + (b1 - b2) * (b1 - b2));
+  return dist;
+}
+
 export function sortColors(colorCounts) {
   const counts = Object.keys(colorCounts).map(
     (key) => [key, colorCounts[key]],

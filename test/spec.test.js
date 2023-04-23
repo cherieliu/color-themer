@@ -53,6 +53,13 @@ test('Unit Test 5: tests top5Colors method', () => {
   assert.equal(top5Colors.length, 5);
 });
 
+const color1 = 'f542e3'; // rgb = (245, 66, 227)
+const color2 = 'f53be2'; // rgb = (245, 59, 226)
+const dist = Math.sqrt((66 - 59) * (66 - 59) + 1);
+test('Unit Test 6: tests calculateColorDistance', () => {
+  assert.equal(utils.calculateColorDistance(color1, color2), dist);
+});
+
 /* ----- INTEGRATION TEST ----- */
 const top10Colors = utils.getColorScheme(impath, 10);
 test('Integration Test', () => {
