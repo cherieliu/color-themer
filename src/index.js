@@ -34,33 +34,6 @@ export function getRGBColors(imageBuffer) {
   return colors;
 }
 
-export function getColorCount(colors) {
-  const colorCount = {};
-  let i = 0;
-  let hex;
-  let r;
-  let g;
-  let b;
-  r = 0;
-  g = 0;
-  b = 0;
-  for (i = 0; i < colors.length; i += 1) {
-    const rgb = colors[i];
-    [r, g, b] = rgb;
-    // eslint-disable-next-line no-bitwise
-    hex = ((r << 16) | (g << 8) | b).toString(16);
-    // invalid hex code
-    if (hex.length === 6 && !Number.isNaN(Number(`0x${hex}`))) {
-      if (hex in colorCount) {
-        colorCount[hex] += 1;
-      } else {
-        colorCount[hex] = 1;
-      }
-    }
-  }
-  return colorCount;
-}
-
 export function calculateColorDistance(hex1, hex2) {
   const hex1int = parseInt(hex1, 16);
   // eslint-disable-next-line no-bitwise
@@ -79,6 +52,45 @@ export function calculateColorDistance(hex1, hex2) {
   const b2 = hex2int & 255;
   const dist = Math.sqrt((r1 - r2) * (r1 - r2) + (g1 - g2) * (g1 - g2) + (b1 - b2) * (b1 - b2));
   return dist;
+}
+
+export function getColorCount(colors) {
+  const colorCount = {};
+  let i = 0;
+  let hex;
+  let r;
+  let g;
+  let b;
+  let added;
+  r = 0;
+  g = 0;
+  b = 0;
+  for (i = 0; i < colors.length; i += 1) {
+    const rgb = colors[i];
+    [r, g, b] = rgb;
+    // eslint-disable-next-line no-bitwise
+    hex = ((r << 16) | (g << 8) | b).toString(16);
+    // invalid hex code
+    if (hex.length === 6 && !Number.isNaN(Number(`0x${hex}`))) {
+      if (hex in colorCount) {
+        colorCount[hex] += 1;
+      } else {
+        added = false;
+        const keys = Object.keys(colorCount);
+        for (let j = 0; j < keys.length; j += 1) {
+          if (calculateColorDistance(keys[j], hex) < 50) {
+            colorCount[keys[j]] += 1;
+            added = true;
+            break;
+          }
+        }
+        if (!added) {
+          colorCount[hex] = 1;
+        }
+      }
+    }
+  }
+  return colorCount;
 }
 
 export function sortColors(colorCounts) {
