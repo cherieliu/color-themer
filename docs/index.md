@@ -9,8 +9,9 @@ Then, to install the library, run `npm install color-themer`
 
 ## Library Usage
 Currently, there is one public method that users can call to access the library's functionality.
-`getColorScheme` takes an image filepath and the number of colors wanted in the theme, and outputs the top n most popular colors in the image.
+`getColorScheme` takes an image filepath and the number of colors wanted in the theme, and outputs the top n most popular colors in the image. 
 
+A new functionality released in version 1.0.2 further differentiates the color codes. Colors that are off by just a few numbers are now considered the same color, rather than different ones. Visually, through this implementation, users will not receive the same color in various shades. Instead, the function will output distinct colors that can contribute to the theme.
 
 ```eval_rst
 .. js:autofunction:: getColorScheme 
