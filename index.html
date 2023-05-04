@@ -91,6 +91,7 @@ Then, to install the library, run <code class="docutils literal notranslate"><sp
 <h2>Library Usage<a class="headerlink" href="#library-usage" title="Permalink to this heading"></a></h2>
 <p>Currently, there is one public method that users can call to access the library’s functionality.
 <code class="docutils literal notranslate"><span class="pre">getColorScheme</span></code> takes an image filepath and the number of colors wanted in the theme, and outputs the top n most popular colors in the image.</p>
+<p>A new functionality released in version 1.0.2 further differentiates the color codes. Colors that are off by just a few numbers are now considered the same color, rather than different ones. Visually, through this implementation, users will not receive the same color in various shades. Instead, the function will output distinct colors that can contribute to the theme.</p>
 <dl class="js function">
 <dt class="sig sig-object js" id="getColorScheme">
 <span class="sig-name descname"><span class="n"><span class="pre">getColorScheme</span></span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">imagePath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#getColorScheme" title="Permalink to this definition"></a></dt>
