@@ -19,11 +19,21 @@ A new functionality released in version 1.0.2 further differentiates the color c
 
 ## Example
 To use the above method, find an image and its path. The method requires a string input for path. The output of the method is the color codes in array, which users can later extract and use in their HTML elements, etc. 
-The below Jupyter notebook screenshot shows the example usage for the below image: 
 
+The below Jupyter notebook screenshots show example usages for two images. The first example produces a five-color theme, and the second example produces a ten-color theme. As evidenced by the program output, the color theme produced is specific to each image:
+
+### Example 1
 ```eval_rst
 .. image:: ../test/testimg1.png
    :width: 172px
 .. image:: ../demo.png
+   :width: 600px
+```
+
+### Example 2
+```eval_rst
+.. image:: ../test/testimg2.png
+   :width: 172px
+.. image:: ../demo2.png
    :width: 600px
 ```
