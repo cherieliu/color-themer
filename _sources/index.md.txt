@@ -1,6 +1,7 @@
 # Welcome to color-themer's documentation!
 
-color-themer is a library created to help resolve the pain points frequently experienced when developing with RGB colors. Its main purpose is to generate a color scheme based on an image inputted by the user.
+## Overview
+color-themer is a library created to help resolve the pain points frequently experienced when developing with RGB colors. Its main purpose is to generate a color scheme based on an image inputted by the user. It will select the most common colors in the image to be part of the theme.
 
 ## Installation
 Thanks for your interest in color-themer!
